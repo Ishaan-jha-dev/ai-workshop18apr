@@ -1,31 +1,21 @@
-/* ========================================================
-   ZERO VENTURE – AI WORKSHOP Logic
-   Modern Pro Implementation
-   ======================================================== */
-
 const CONFIG = {
   priceStudent: 49,
   priceRegular: 99,
   upiId: "9532106646@kotak811",
   upiName: "ISHAAN JHA",
-  whatsappLink: "https://chat.whatsapp.com/G5lHlU2lQy50X56u7m6J7w",
   whatsappNumber: "8299147213",
   googleForm: "https://docs.google.com/forms/d/e/1FAIpQLScoaNTw7cM9yd5gdW5akzza11Tn0TEBWZy-m94JAvSbO4ew8g/viewform?usp=header",
   adminPass: "admin2025"
 };
 
-let currentPrice = CONFIG.priceStudent;
-let currentType = "Student";
+let currentPrice = CONFIG.priceRegular;
+let currentType = "Regular";
 
 // ───── INITIALIZATION ─────
 document.addEventListener('DOMContentLoaded', () => {
   initCountdown();
   initSeats();
   initHeader();
-  
-  // Load existing data
-  const registrations = JSON.parse(localStorage.getItem('zv_regs') || '[]');
-  console.log("System Ready. Active Registrations:", registrations.length);
 });
 
 // ───── HEADER ─────
@@ -68,23 +58,10 @@ function initCountdown() {
 function initSeats() {
   let initial = 33;
   let max = 50;
-  
   const saved = JSON.parse(localStorage.getItem('zv_regs') || '[]');
   let count = initial + saved.length;
-  
   document.getElementById('regCount').textContent = count;
   document.getElementById('seatsLeft').textContent = max - count;
-
-  // Fake organic updates
-  setInterval(() => {
-    if (count < max - 2) {
-      if (Math.random() > 0.8) {
-        count++;
-        document.getElementById('regCount').textContent = count;
-        document.getElementById('seatsLeft').textContent = max - count;
-      }
-    }
-  }, 15000);
 }
 
 // ───── PAYMENT FLOW ─────
@@ -94,30 +71,57 @@ function openPaymentFlow(type) {
     currentPrice = type === 'student' ? CONFIG.priceStudent : CONFIG.priceRegular;
   }
 
+  const modal = document.getElementById('paymentModal');
+  modal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+
+  // If student selected, show verification step first
+  if (currentType === "Student") {
+    showStep('stepVerify');
+  } else {
+    initiatePayment();
+  }
+}
+
+function verifyStudent() {
+  const email = document.getElementById('studentEmail').value.trim().toLowerCase();
+  const error = document.getElementById('verifyError');
+  
+  if (email.endsWith('.edu') || email.endsWith('.ac.in') || email.endsWith('.edu.in')) {
+    error.classList.add('hidden');
+    initiatePayment();
+  } else {
+    error.classList.remove('hidden');
+  }
+}
+
+function requestPromo() {
+  const text = encodeURIComponent("Hey Ishaan! I'm a student but don't have an .edu email. Here's my ID card photo. Please share the promo code for the ₹49 registration!");
+  window.open(`https://wa.me/91${CONFIG.whatsappNumber}?text=${text}`, '_blank');
+}
+
+function initiatePayment() {
   document.getElementById('modalPrice').textContent = `₹${currentPrice}`;
   document.getElementById('modalType').textContent = `${currentType} Registration`;
   
-  // Generate QR
   const upiLink = `upi://pay?pa=${CONFIG.upiId}&pn=${encodeURI(CONFIG.upiName)}&am=${currentPrice}&cu=INR`;
   const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(upiLink)}&color=050508`;
   document.getElementById('qrImage').src = qrUrl;
 
-  document.getElementById('paymentModal').classList.remove('hidden');
-  document.body.style.overflow = 'hidden';
+  showStep('step1');
 }
 
-function closePaymentFlow() {
-  document.getElementById('paymentModal').classList.add('hidden');
-  document.body.style.overflow = 'auto';
-  // Reset steps
-  document.getElementById('step1').classList.remove('hidden');
-  document.getElementById('step2').classList.add('hidden');
-  document.getElementById('step3').classList.add('hidden');
+function showStep(stepId) {
+  ['stepVerify', 'step1', 'step2', 'step3'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.classList.add('hidden');
+  });
+  document.getElementById(stepId).classList.remove('hidden');
 }
 
 function validateAndNext() {
   const utr = document.getElementById('utr').value.trim();
-  if (utr.length < 6) {
+  if (utr.length < 10) {
     document.getElementById('utrError').classList.remove('hidden');
     return;
   }
@@ -135,20 +139,27 @@ function validateAndNext() {
   regs.push(newReg);
   localStorage.setItem('zv_regs', JSON.stringify(regs));
 
-  // Next step
-  document.getElementById('step1').classList.add('hidden');
-  document.getElementById('step2').classList.remove('hidden');
+  showStep('step2');
 }
 
 function goToStep3() {
-  document.getElementById('step2').classList.add('hidden');
-  document.getElementById('step3').classList.remove('hidden');
-  
-  // Confetti
+  showStep('step3');
   runConfetti();
 }
 
-// ───── UTILS ─────
+function closePaymentFlow() {
+  document.getElementById('paymentModal').classList.add('hidden');
+  document.body.style.overflow = 'auto';
+}
+
+// ───── WHATSAPP QUERY ─────
+function sendQuery() {
+  const query = document.getElementById('userQuery').value.trim();
+  if (!query) return;
+  const text = encodeURIComponent(`Hi Ishaan! I have a question regarding the AI Workshop: ${query}`);
+  window.open(`https://wa.me/91${CONFIG.whatsappNumber}?text=${text}`, '_blank');
+}
+
 function runConfetti() {
   const canvas = document.createElement('canvas');
   canvas.style.position = 'fixed';
@@ -157,7 +168,6 @@ function runConfetti() {
   canvas.style.pointerEvents = 'none';
   document.body.appendChild(canvas);
   
-  // Simple "Antigravity Fallback" Confetti
   const ctx = canvas.getContext('2d');
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
@@ -168,7 +178,6 @@ function runConfetti() {
       x: Math.random() * canvas.width,
       y: -20,
       r: Math.random() * 6 + 2,
-      d: Math.random() * 10,
       color: `hsl(${Math.random() * 360}, 70%, 60%)`,
       tilt: Math.random() * 10 - 5
     });
@@ -184,22 +193,9 @@ function runConfetti() {
       ctx.lineTo(p.x + p.tilt, p.y + p.tilt + p.r/2);
       ctx.stroke();
       p.y += Math.random() * 3 + 2;
-      p.tilt += Math.random() * 2 - 1;
     });
     if(particles[0].y < canvas.height) requestAnimationFrame(draw);
     else canvas.remove();
   }
   draw();
-}
-
-// ───── ADMIN ─────
-function openAdmin() {
-  const pass = prompt("Admin Password:");
-  if (pass === CONFIG.adminPass) {
-    const regs = JSON.parse(localStorage.getItem('zv_regs') || '[]');
-    console.table(regs);
-    alert(`Total Sales: ₹${regs.reduce((sum, r) => sum + r.price, 0)}\nCheck console for full table.`);
-  } else {
-    alert("Unauthorized.");
-  }
 }
