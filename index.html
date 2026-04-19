@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zero Venture | AI Workshop by Ishaan Jha</title>
+  <meta name="description" content="A specialized 2-hour intensive workshop on AI tools, content generation, and automation by Ishaan Jha (IIT Madras & IIM Bangalore).">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ───── HEADER ───── -->
+  <header class="site-header" id="header">
+    <div class="container nav-inner">
+      <a href="#" class="logo">ZERO <span>VENTURE</span></a>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#curriculum">Curriculum</a>
+        <a href="#pricing">Pricing</a>
+      </nav>
+      <button class="btn-premium" onclick="openPaymentFlow()">Register Now</button>
+    </div>
+  </header>
+
+  <!-- ───── HERO ───── -->
+  <section class="hero">
+    <div class="hero-bg-asset"></div>
+    <div class="hero-img-wrap">
+      <img src="nano_banana_hero_1776605686941.png" alt="Nano Banana Hero" style="width: 100%;">
+    </div>
+    <div class="container hero-content">
+      <div class="hero-badge"><i></i> LIVE SESSION · TONIGHT 8:00 PM</div>
+      <h1>
+        Master AI <br>
+        <span class="text-gradient">Beyond Prompting</span>
+      </h1>
+      <p class="hero-sub">
+        Learn to build content machines, automated websites, and digital assets in just 2 hours. Expert-led, 100% practical.
+      </p>
+      <div class="hero-actions">
+        <button class="btn-premium" onclick="openPaymentFlow()">Secure Your Seat — ₹49 / ₹99</button>
+        <a href="#about" class="btn-secondary" style="margin-left: 1rem;">View Instructor Profile</a>
+      </div>
+      <div class="hero-footer">
+        <div class="hero-stat">
+          <b id="seatsLeft">47</b>
+          <span>Seats Left</span>
+        </div>
+        <div class="hero-stat">
+          <b id="regCount">33</b>
+          <span>Registered</span>
+        </div>
+        <div class="hero-stat">
+          <b id="countdown">--:--:--</b>
+          <span>Register By</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── ABOUT / TRUST ───── -->
+  <section class="section-pad" id="about">
+    <div class="container">
+      <div class="instructor-grid">
+        <div class="inst-image-area">
+          <div class="inst-visual">
+            <img src="nano_banana_instructor_1776605706531.png" alt="Instructor visual" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-xl);">
+          </div>
+          <div class="inst-badge-group">
+            <div class="inst-badge"><strong>IIT</strong><span>Madras</span></div>
+            <div class="inst-badge"><strong>IIM</strong><span>Bangalore</span></div>
+          </div>
+        </div>
+        <div class="inst-info">
+          <span class="tagline">Your Instructor</span>
+          <h2>Meet <span class="text-gradient">Ishaan Jha</span></h2>
+          <p style="margin: 1.5rem 0; font-size: 1.15rem; color: var(--t-silver);">
+            Bridging the gap between Data Science and Digital Strategy. Ishaan specializes in building high-performance AI workflows that replace hours of manual labor.
+          </p>
+          <div class="glass-card" style="padding: 1.5rem; border-color: rgba(255, 95, 0, 0.2);">
+            <p style="font-size: 0.95rem; font-style: italic; color: var(--t-pearl);">
+              "My objective is simple: Teach you the AI stack I used to build content systems at scale, verified hacks for students, and a roadmap to monetization."
+            </p>
+          </div>
+          <div style="margin-top: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+            <div>
+              <h4 style="margin-bottom: 0.5rem; color: var(--accent-primary);">Expertise</h4>
+              <p style="font-size: 0.85rem; color: var(--t-silver);">Python · Prompt Engineering · Growth Systems · AI Automation</p>
+            </div>
+            <div>
+              <h4 style="margin-bottom: 0.5rem; color: var(--accent-primary);">Hacks</h4>
+              <p style="font-size: 0.85rem; color: var(--t-silver);">Student Credits · Free Pro Access · API Optimization</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── ROADMAP ───── -->
+  <section class="section-pad" style="background: var(--bg-card);">
+    <div class="container">
+      <div class="center-header">
+        <span class="tagline">The Path Forward</span>
+        <h2>120 Minutes to <span class="text-gradient">AI Mastery</span></h2>
+      </div>
+      <div class="roadmap-horizontal" style="display: flex; gap: 2rem; flex-wrap: wrap;">
+        <!-- Steps would go here, but let's stick to a clean grid -->
+        <div class="glass-card" style="flex: 1; min-width: 250px;">
+          <h4 style="color: var(--accent-primary); margin-bottom: 1rem;">1. Foundations</h4>
+          <p style="font-size: 0.85rem; color: var(--t-silver);">Gemini & Claude deep-dives. Moving from chat to structured reasoning.</p>
+        </div>
+        <div class="glass-card" style="flex: 1; min-width: 250px;">
+          <h4 style="color: var(--accent-primary); margin-bottom: 1rem;">2. Content</h4>
+          <p style="font-size: 0.85rem; color: var(--t-silver);">Whisk & Veo. Generative video and image assets for creators.</p>
+        </div>
+        <div class="glass-card" style="flex: 1; min-width: 250px;">
+          <h4 style="color: var(--accent-primary); margin-bottom: 1rem;">3. Scaling</h4>
+          <p style="font-size: 0.85rem; color: var(--t-silver);">Stitch & Antigravity. Building websites and code-driven assets live.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── CURRICULUM ───── -->
+  <section class="section-pad" id="curriculum">
+    <div class="container">
+      <div class="center-header">
+        <span class="tagline">Curriculum</span>
+        <h2>Built for <span class="text-gradient">Builders</span></h2>
+      </div>
+      <div class="curriculum-grid">
+        <div class="glass-card cur-card">
+          <i>🧠</i>
+          <h3>AI Models</h3>
+          <p>Go deep into Gemini, NotebookLM, and Claude Opus workflows.</p>
+          <ul>
+            <li>Advanced Logic Prompting</li>
+            <li>Research Automation</li>
+            <li>Free Student Hacks</li>
+          </ul>
+        </div>
+        <div class="glass-card cur-card">
+          <i>🎬</i>
+          <h3>Viral Assets</h3>
+          <p>Generate production-grade content for Instagram, Ads, and Brands.</p>
+          <ul>
+            <li>Generative Video (Veo)</li>
+            <li>High-End Imaging (Whisk)</li>
+            <li>Content Scheduling</li>
+          </ul>
+        </div>
+        <div class="glass-card cur-card">
+          <i>🏗️</i>
+          <h3>Live Build</h3>
+          <p>We build a complete website live and show you how to monetize it.</p>
+          <ul>
+            <li>Stitch No-Code UI</li>
+            <li>AI-Driven Coding</li>
+            <li>Portfolio Roadmaps</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── PRICING ───── -->
+  <section class="section-pad" id="pricing">
+    <div class="container">
+      <div class="center-header">
+        <span class="tagline">Investment</span>
+        <h2>Choose Your <span class="text-gradient">Access</span></h2>
+      </div>
+      <div class="pricing-content">
+        <div class="glass-card price-card">
+          <span class="tagline">Standard</span>
+          <div class="price-amount"><span>₹</span>99</div>
+          <p style="color: var(--t-silver); margin-bottom: 2rem;">Lifetime access to recording, resource bundle, and community.</p>
+          <button class="btn-secondary" style="width: 100%;" onclick="openPaymentFlow('regular')">Register Regular</button>
+        </div>
+        <div class="glass-card price-card featured">
+          <span class="tagline" style="color: var(--accent-primary);">Scholar</span>
+          <div class="price-amount text-gradient"><span>₹</span>49</div>
+          <p style="color: var(--t-silver); margin-bottom: 2rem;">Verified for students with university email. Special AI hack guide included.</p>
+          <button class="btn-premium" style="width: 100%;" onclick="openPaymentFlow('student')">Apply Scholarship</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───── REGISTRATION MODAL ───── -->
+  <div class="modal-overlay hidden" id="paymentModal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closePaymentFlow()">✕</button>
+      
+      <div id="step1">
+        <div style="text-align: center; margin-bottom: 2.5rem;">
+          <h2 id="modalPrice">₹49</h2>
+          <p id="modalType">Student Registration</p>
+        </div>
+        
+        <div style="background: white; padding: 1rem; border-radius: var(--radius-md); width: 180px; margin: 0 auto 2rem;">
+          <img id="qrImage" src="" alt="UPI QR" style="width: 100%; display: block;">
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">Transaction UTR / ID</label>
+          <input type="text" id="utr" class="input-field" placeholder="Enter 12 digit UTR number">
+          <p id="utrError" style="color: var(--accent-primary); font-size: 0.75rem; margin-top: 0.5rem;" class="hidden">Please enter a valid UTR</p>
+        </div>
+
+        <button class="btn-premium" style="width: 100%;" onclick="validateAndNext()">Verify Payment & Continue</button>
+      </div>
+
+      <div id="step2" class="hidden">
+        <div style="text-align: center;">
+          <h2 style="margin-bottom: 1rem;">✅ Payment Recorded</h2>
+          <p style="color: var(--t-silver); margin-bottom: 2rem;">Please fill the final verification form to receive the WhatsApp link.</p>
+          
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScoaNTw7cM9yd5gdW5akzza11Tn0TEBWZy-m94JAvSbO4ew8g/viewform?usp=header" target="_blank" class="btn-premium" style="width: 100%; margin-bottom: 1rem;">Open Verification Form</a>
+          <button class="btn-secondary" style="width: 100%;" onclick="goToStep3()">I have filled the form</button>
+        </div>
+      </div>
+
+      <div id="step3" class="hidden">
+        <div style="text-align: center;">
+          <h2 style="margin-bottom: 1rem;">🎉 You're In!</h2>
+          <p style="color: var(--t-silver); margin-bottom: 2.5rem;">Join the official workshop group to receive the live link at 7:45 PM.</p>
+          
+          <a href="https://chat.whatsapp.com/G5lHlU2lQy50X56u7m6J7w" target="_blank" class="btn-premium" style="width: 100%;">Join Workshop Group</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ───── FOOTER ───── -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="logo">ZERO <span>VENTURE</span></div>
+      <div class="copyright">© 2025 Zero Venture · By Ishaan Jha</div>
+      <div style="display: flex; gap: 2rem;">
+        <a href="https://wa.me/918299147213" target="_blank" style="color: var(--t-silver); text-decoration: none; font-size: 0.9rem;">Support</a>
+        <a href="#" onclick="openAdmin()" style="color: var(--t-mute); text-decoration: none; font-size: 0.9rem;">Admin</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
