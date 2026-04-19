@@ -437,13 +437,14 @@ h1, h2, h3, h4 {
 
 .modal-content {
   width: 100%;
-  max-width: 500px;
-  background: #ffffff;
-  border: 1px solid var(--border);
-  box-shadow: 0 30px 100px -20px rgba(0,0,0,0.15);
-  border-radius: var(--radius-xl);
+  max-width: 440px;
+  background: linear-gradient(180deg, #111111 0%, #a21a32 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 40px 100px -20px rgba(162, 26, 50, 0.4);
+  border-radius: 32px;
   padding: 3rem;
   position: relative;
+  color: white;
 }
 
 .close-modal {
@@ -453,7 +454,7 @@ h1, h2, h3, h4 {
   background: var(--glass);
   border: none;
   border-radius: 50%;
-  color: #111827;
+  color: white;
   cursor: pointer;
   font-size: 1.2rem;
 }
@@ -464,7 +465,7 @@ h1, h2, h3, h4 {
   display: block;
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--t-silver);
+  color: rgba(255, 255, 255, 0.7);
   margin-bottom: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -473,10 +474,10 @@ h1, h2, h3, h4 {
 .input-field {
   width: 100%;
   padding: 1.25rem 1.5rem;
-  background: #f3f4f6;
+  background: rgba(255, 255, 255, 0.1);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  color: #111827;
+  color: white;
   font-family: inherit;
   font-size: 1rem;
   transition: all 0.3s ease;

@@ -6,9 +6,9 @@
 const CONFIG = {
   priceStudent: 49,
   priceRegular: 99,
-  upiId: "zeroventure@upi",
-  upiName: "Zero Venture",
-  whatsappLink: "https://chat.whatsapp.com/G5lHlU2lQy50X56u7m6J7w", // I'll assume a dummy group link for now or just generic if not provided, but wait, the user gave 8299147213.
+  upiId: "9532106646@kotak811",
+  upiName: "ISHAAN JHA",
+  whatsappLink: "https://chat.whatsapp.com/G5lHlU2lQy50X56u7m6J7w",
   whatsappNumber: "8299147213",
   googleForm: "https://docs.google.com/forms/d/e/1FAIpQLScoaNTw7cM9yd5gdW5akzza11Tn0TEBWZy-m94JAvSbO4ew8g/viewform?usp=header",
   adminPass: "admin2025"
